@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Notes - Your Notes</title>
+  <link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section class="main">
+    <h1>Easy Notes - Your Notes</h1>
+    <ol>
+        <% 
+          for( let i = 0 ; i<data.length ; i++ ){%>
+            <li>
+              <h3> <%= data[i].title %> </h3  >
+              <p> <%= data[i].content %> </p>
+              <button class="deleteButton" id="<%=data[i].id%>">Delete note</button>
+            </li>
+        <%}%>
+    </ol>
+    <form action="/notes" method="POST">
+      <input name="title" type="text" placeholder="Title">
+      <input name="content" type="text" placeholder="Content">
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+  <script>
+    const notes = <%- JSON.stringify(data) %>
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

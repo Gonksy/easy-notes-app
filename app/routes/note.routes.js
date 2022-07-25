@@ -1,6 +1,10 @@
 module.exports = (app) => {
   const notes = require('../controllers/note.controller.js')
 
+
+   // Landing page
+   app.get('/', notes.landingPage)
+
    // Create a new Note
    app.post('/notes', notes.create);
 

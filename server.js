@@ -7,6 +7,7 @@ require('dotenv').config();
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.set('view engine', 'ejs')
 
 let dbConnectionStr = process.env.DB_STRING
 
@@ -22,9 +23,6 @@ mongoose.connect(dbConnectionStr, {
 });
 
 
-app.get('/', (req, res) => {
-  res.json({'message': 'Welcome to EasyNotes.'})
-})
 
 require('./app/routes/note.routes.js')(app);
 

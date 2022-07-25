@@ -1,5 +1,10 @@
 const Note = require('../models/note.model.js');
 
+// Landing page
+exports.landingPage = (req, res) => {
+  res.render('index.ejs')
+}
+
 // Create and Save a new Note
 exports.create = (req, res) => {
     // Validate request
@@ -18,7 +23,7 @@ exports.create = (req, res) => {
     // Save Note in the database
     note.save()
     .then(data => {
-        res.send(data);
+        res.redirect('/notes');
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while creating the Note."
@@ -26,11 +31,12 @@ exports.create = (req, res) => {
     });
 };
 
+
 // Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
   Note.find()
   .then(notes => {
-    res.send(notes)
+    res.render('notes.ejs', { data: notes } )
   })
   .catch(err => {
     res.status(500).send({

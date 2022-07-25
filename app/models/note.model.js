@@ -7,4 +7,13 @@ const NoteSchema = mongoose.Schema({
   timestamps: true
 });
 
+
 module.exports = mongoose.model('Note', NoteSchema);
+
+
+// const BoxSchema = mongoose.Schema({
+//   boxName: String,
+//   boxItems: [NoteSchema]
+// })
+
+// module.exports = mongoose.model('Box', BoxSchema);
