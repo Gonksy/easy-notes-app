@@ -34,3 +34,16 @@ h3{
 .deleteButton{
   display: block;
 }
+
+.hidden{
+  display: none;
+}
+
+.cancelButton{
+  margin: 1%;
+  display: inline-block;
+}
+
+form{
+  margin: 3% 0 3% 0;
+}
