@@ -26,6 +26,6 @@ mongoose.connect(dbConnectionStr, {
 
 require('./app/routes/note.routes.js')(app);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Listening on ${PORT}`)
 })
