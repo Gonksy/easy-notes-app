@@ -10,7 +10,7 @@ app.use(express.json());
 app.set('view engine', 'ejs')
 
 let dbConnectionStr = process.env.DB_STRING
-
+console.log(`Attempting to connect to ${process.env.DB_STRING}`)
 mongoose.Promise = global.Promise;
 
 mongoose.connect(dbConnectionStr, {
