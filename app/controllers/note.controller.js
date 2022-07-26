@@ -23,7 +23,7 @@ exports.create = (req, res) => {
     // Save Note in the database
     note.save()
     .then(data => {
-        res.redirect('/notes');
+        res.redirect('/');
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while creating the Note."
